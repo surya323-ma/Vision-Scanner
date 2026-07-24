@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vision Scanner — Identify Anything</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Field Scanner &middot; Vision Model</p>
+        <h1>Point it at anything. It'll tell you what it's looking at.</h1>
+        <p class="hero-copy">Faces, animals, birds, insects, plants, gadgets, vehicles — upload a photo or open your camera and the scanner will identify it, living or not.</p>
+      </div>
+
+      <div class="hero-actions">
+        <label class="btn btn-primary upload-btn" for="imageInput">
+          <span>Upload Image</span>
+          <input id="imageInput" type="file" accept="image/*" hidden />
+        </label>
+        <button id="cameraBtn" class="btn btn-secondary" type="button">Open Camera</button>
+      </div>
+    </header>
+
+    <section class="preview-grid">
+
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Viewfinder</h2>
+          <span class="panel-badge">Input</span>
+        </div>
+
+        <div id="mediaFrame" class="media-frame">
+          <div class="bracket bracket-tl"></div>
+          <div class="bracket bracket-tr"></div>
+          <div class="bracket bracket-bl"></div>
+          <div class="bracket bracket-br"></div>
+          <div class="scan-line"></div>
+
+          <div id="emptyState" class="empty-state">
+            <p>No subject in frame. Upload an image or open the camera to begin.</p>
+          </div>
+          <img id="previewImage" class="preview-image" alt=" " style="display: none;" />
+          <video id="cameraFeed" autoplay playsinline muted></video>
+          <canvas id="captureCanvas" style="display: none;"></canvas>
+        </div>
+
+        <div class="camera-actions">
+          <button id="captureBtn" class="btn btn-primary" type="button" style="display: none;">Capture Photo</button>
+          <button id="resetBtn" class="btn btn-secondary" type="button" style="display: none;">Reset</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Field Report</h2>
+          <span class="panel-badge">Output</span>
+        </div>
+
+        <button id="classifyBtn" class="btn btn-primary classify-btn" type="button" disabled>Scan Subject</button>
+
+        <div id="resultBox" class="result-box">
+          <p class="placeholder">Upload an image or open your camera, then scan to identify the subject.</p>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
