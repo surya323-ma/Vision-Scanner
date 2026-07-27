@@ -54,7 +54,7 @@ pip install -r requirements.txt
 uvicorn app:app --reload
 ```
 
-Open **http://localhost:8000** in your browser.
+https://vision-scanner-tw5x.onrender.com deploy link
 
 > First run downloads ~14MB of MobileNetV2 weights (needs internet once); after that it's cached under `~/.keras`.
 
